@@ -38,14 +38,11 @@ def get_table_info():
 
 # data for the graph
 def get_graph_info():
-    ydata = pdr.get_data_yahoo(yahooStocks, start=get_years(1), end=get_tomorrow())
+    ydata = pdr.get_data_yahoo(yahooStocks, start=get_years(5), end=get_tomorrow())
     return pd.DataFrame(ydata['Open'])  # get table with recent quote
 
 def format_historical_data(list_stocks):
-    day_interval = 0 
     list_stocks['MyDate'] = ""
-    for stock in stocks_porfolio:
-        list_stocks.at[stock, 'MyDate'] = day_interval
-        day_interval = day_interval + 1
+    list_stocks['MyDate']=list_stocks.index
     return list_stocks
     
