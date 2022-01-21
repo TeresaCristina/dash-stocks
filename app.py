@@ -72,7 +72,6 @@ app.layout = html.Div([
 
 # Graph updates (reacts to user choices)
 
-
 @app.callback(
     Output("time-series-chart", "figure"),
     Input("ticker", "value"),
